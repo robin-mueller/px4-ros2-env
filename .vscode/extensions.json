@@ -1,0 +1,12 @@
+{
+        "recommendations": [
+                "ms-python.autopep8",
+                "ms-iot.vscode-ros",
+                "ms-python.python",
+                "twxs.cmake",
+                "streetsidesoftware.code-spell-checker",
+                "ms-vscode.cpptools",
+                "dotjoshjohnson.xml",
+                "rioj7.command-variable"
+        ]
+}

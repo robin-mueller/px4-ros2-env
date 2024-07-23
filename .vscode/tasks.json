@@ -1,0 +1,163 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        // Deploy tasks
+        {
+            "label": "Run PX4",
+            "detail": "Start PX4 autopilot application",
+            "type": "shell",
+            "command": "cd $PX4_AUTOPILOT_DIR && PX4_GZ_WORLD=liwi make px4_sitl gz_x500",
+            "problemMatcher": "$gcc",
+            "presentation": {
+                "reveal": "never",
+                "panel": "dedicated",
+            }
+        },
+        {
+            "label": "Run QGroundControl",
+            "detail": "Start QGroundControl application",
+            "type": "shell",
+            "command": "QT_QPA_PLATFORM='xcb' $QGROUNDCONTROL_APP",
+            "problemMatcher": "$gcc",
+            "presentation": {
+                "reveal": "never",
+                "panel": "dedicated",
+            }
+        },
+        {
+            "label": "Run Micro XRCE DDS Agent",
+            "detail": "Start Micro XRCE DDS agent",
+            "type": "shell",
+            "command": "MicroXRCEAgent udp4 -p 8888",
+            "problemMatcher": "$gcc",
+            "presentation": {
+                "reveal": "never",
+                "panel": "dedicated",
+            }
+        },
+        {
+            "label": "Run Simulation",
+            "detail": "Start all required processes for UAS simulation",
+            "dependsOrder": "parallel",
+            "dependsOn": [
+                "Run Micro XRCE DDS Agent",
+                "Run QGroundControl",
+                "Run PX4"
+            ],
+            "problemMatcher": "$gcc",
+        },
+        {
+            "label": "Run Groot2",
+            "detail": "Start Groot2 application",
+            "type": "shell",
+            "command": "$GROOT2_APP",
+            "problemMatcher": "$gcc",
+            "presentation": {
+                "reveal": "never",
+                "panel": "dedicated",
+            }
+        },
+        // Build tasks
+        {
+            "label": "Build package",
+            "detail": "Build a single package",
+            "type": "shell",
+            "command": "COLCON_DEFAULTS_FILE=${workspaceFolder}/colcon_defaults.yaml colcon build --packages-select ${input:package}",
+            "group": {
+                "kind": "build"
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "Build packages up to",
+            "detail": "Build a package and its dependencies",
+            "type": "shell",
+            "command": "COLCON_DEFAULTS_FILE=${workspaceFolder}/colcon_defaults.yaml colcon build --packages-up-to ${input:package}",
+            "group": {
+                "kind": "build"
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "Build all",
+            "detail": "Build workspace",
+            "type": "shell",
+            "command": "COLCON_DEFAULTS_FILE=${workspaceFolder}/colcon_defaults.yaml colcon build",
+            "group": {
+                "kind": "build"
+            },
+            "problemMatcher": "$gcc"
+        },
+        // Clean
+        {
+            "label": "Clean workspace",
+            "detail": "Run the clean target",
+            "type": "shell",
+            "command": "COLCON_DEFAULTS_FILE=${workspaceFolder}/colcon_defaults.yaml colcon build --cmake-target clean",
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "Purge workspace",
+            "detail": "Purge workspace by deleting all generated files.",
+            "type": "shell",
+            "command": "sudo rm -fr build install log; sudo py3clean .",
+            "problemMatcher": []
+        },
+        // Workspace editing tasks
+        {
+            "label": "New ament_cmake package",
+            "detail": "Create a new ROS cpp package from a template.",
+            "type": "shell",
+            "command": "ros2 pkg create --destination-directory src --build-type ament_cmake ${input:package}",
+            "problemMatcher": []
+        },
+        {
+            "label": "New ament_python package",
+            "detail": "Create a new ROS python package from a template.",
+            "type": "shell",
+            "command": "ros2 pkg create --destination-directory src --build-type ament_python ${input:package}",
+            "problemMatcher": []
+        },
+        {
+            "label": "Import from workspace file",
+            "detail": "Use vcs to import modules specified by a workspace/rosinstall file.",
+            "type": "shell",
+            "command": "vcs import < src/ros2.repos src --recursive; vcs pull src",
+            "problemMatcher": []
+        },
+        {
+            "label": "Update workspace file",
+            "detail": "Use vcs to update repositories in src to workspace file.",
+            "type": "shell",
+            "command": "vcs export src > src/ros2.repos",
+            "problemMatcher": []
+        },
+        {
+            "label": "Install dependencies",
+            "detail": "Install all dependencies specified in the workspaces package.xml files.",
+            "type": "shell",
+            "command": "sudo apt-get update && rosdep update && rosdep install --from-paths src --ignore-src -y",
+            "problemMatcher": []
+        },
+        {
+            "label": "Setup",
+            "detail": "Set up the workspace",
+            "type": "shell",
+            "command": "./setup.sh",
+            "problemMatcher": []
+        },
+    ],
+    "inputs": [
+        {
+            "id": "package",
+            "type": "command",
+            "command": "extension.commandvariable.promptStringRemember",
+            "args": {
+                "key": "package_name",
+                "description": "Package name"
+            }
+        }
+    ]
+}

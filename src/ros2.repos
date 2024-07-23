@@ -1,0 +1,9 @@
+# List of repositories to use within your workspace
+# See https://github.com/dirk-thomas/vcstool
+############ 
+
+repositories:
+  # px4-behavior:
+  #   type: git
+  #   url: https://github.com/robin-mueller/px4-behavior.git
+  #   version: master
