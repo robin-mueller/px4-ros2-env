@@ -8,7 +8,7 @@
             "label": "Run PX4",
             "detail": "Start PX4 autopilot application",
             "type": "shell",
-            "command": "cd $PX4_ROS2_ENV_PX4_AUTOPILOT_DIR && PX4_GZ_WORLD=liwi make px4_sitl gz_x500",
+            "command": "cd $PX4_ROS2_ENV_PX4_AUTOPILOT_DIR && PX4_GZ_WORLD=px4_ros2_env make px4_sitl gz_x500",
             "problemMatcher": "$gcc",
             "presentation": {
                 "reveal": "never",
