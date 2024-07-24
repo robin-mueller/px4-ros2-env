@@ -1,9 +1,32 @@
-# List of repositories to use within your workspace
+# List of repositories to clone into the workspace
 # See https://github.com/dirk-thomas/vcstool
+# Alternatively use rosdep utility program to manage dependencies
 ############ 
 
 repositories:
-  # px4-behavior:
+  # PX4 Autopilot ROS2 dependencies
+  .dep/px4/microxrcedds_agent:
+    type: git
+    url: https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
+    version: v2.4.2
+  .dep/px4/px4_msgs:
+    type: git
+    url: https://github.com/PX4/px4_msgs.git
+    version: 31d0ac838f4adc1730ca21169130c0073e8631de
+  .dep/px4/px4_ros2_interface_lib:
+    type: git
+    url: https://github.com/Auterion/px4-ros2-interface-lib
+    version: 1.2.2
+
+  # .dep/behaviortree/behaviortree_cpp:
+  #   type: git
+  #   url: https://github.com/BehaviorTree/BehaviorTree.CPP.git
+  #   version: 4.6.1
+  # .dep/behaviortree/behaviortree_ros2:
+  #   type: git
+  #   url: https://github.com/BehaviorTree/BehaviorTree.ROS2.git
+  #   version: 6247e2ed142211ea13ce9a226ad45f94cde69be0
+  # .dep/px4-behavior:
   #   type: git
   #   url: https://github.com/robin-mueller/px4-behavior.git
   #   version: master

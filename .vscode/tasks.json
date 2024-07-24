@@ -8,7 +8,7 @@
             "label": "Run PX4",
             "detail": "Start PX4 autopilot application",
             "type": "shell",
-            "command": "cd $PX4_AUTOPILOT_DIR && PX4_GZ_WORLD=liwi make px4_sitl gz_x500",
+            "command": "cd $PX4_ROS2_ENV_PX4_AUTOPILOT_DIR && PX4_GZ_WORLD=liwi make px4_sitl gz_x500",
             "problemMatcher": "$gcc",
             "presentation": {
                 "reveal": "never",
@@ -19,7 +19,7 @@
             "label": "Run QGroundControl",
             "detail": "Start QGroundControl application",
             "type": "shell",
-            "command": "QT_QPA_PLATFORM='xcb' $QGROUNDCONTROL_APP",
+            "command": "QT_QPA_PLATFORM='xcb' $PX4_ROS2_ENV_QGROUNDCONTROL_APP",
             "problemMatcher": "$gcc",
             "presentation": {
                 "reveal": "never",
@@ -52,7 +52,7 @@
             "label": "Run Groot2",
             "detail": "Start Groot2 application",
             "type": "shell",
-            "command": "$GROOT2_APP",
+            "command": "$PX4_ROS2_ENV_GROOT2_APP",
             "problemMatcher": "$gcc",
             "presentation": {
                 "reveal": "never",
@@ -92,14 +92,14 @@
         },
         // Clean
         {
-            "label": "Clean workspace",
-            "detail": "Run the clean target",
+            "label": "Clean",
+            "detail": "Run the CMake clean target",
             "type": "shell",
             "command": "COLCON_DEFAULTS_FILE=${workspaceFolder}/colcon_defaults.yaml colcon build --cmake-target clean",
             "problemMatcher": "$gcc"
         },
         {
-            "label": "Purge workspace",
+            "label": "Purge",
             "detail": "Purge workspace by deleting all generated files.",
             "type": "shell",
             "command": "sudo rm -fr build install log; sudo py3clean .",
@@ -121,33 +121,19 @@
             "problemMatcher": []
         },
         {
-            "label": "Import from workspace file",
-            "detail": "Use vcs to import modules specified by a workspace/rosinstall file.",
+            "label": "Install ROS2 dependencies",
+            "detail": "Install the ROS2 workspace dependencies",
             "type": "shell",
-            "command": "vcs import < src/ros2.repos src --recursive; vcs pull src",
+            "command": "./dep.sh",
             "problemMatcher": []
         },
         {
-            "label": "Update workspace file",
-            "detail": "Use vcs to update repositories in src to workspace file.",
+            "label": "Export worlds",
+            "detail": "Export the .sdf files to the worlds directory of the PX4 installation.",
             "type": "shell",
-            "command": "vcs export src > src/ros2.repos",
+            "command": "${workspaceFolder}/world/export.sh",
             "problemMatcher": []
-        },
-        {
-            "label": "Install dependencies",
-            "detail": "Install all dependencies specified in the workspaces package.xml files.",
-            "type": "shell",
-            "command": "sudo apt-get update && rosdep update && rosdep install --from-paths src --ignore-src -y",
-            "problemMatcher": []
-        },
-        {
-            "label": "Setup",
-            "detail": "Set up the workspace",
-            "type": "shell",
-            "command": "./setup.sh",
-            "problemMatcher": []
-        },
+        }
     ],
     "inputs": [
         {
