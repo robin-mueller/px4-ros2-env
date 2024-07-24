@@ -3,6 +3,7 @@
         120
     ],
     "files.associations": {
+        "*.cmake.in": "cmake",
         "*.repos": "yaml",
         "*.world": "xml",
         "*.xacro": "xml",
