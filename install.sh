@@ -59,5 +59,8 @@ else
     echo -e "\033[1;33m--- Groot2 already installed.\e[0m"
 fi
 
+# source again after major installations
+source ${SCRIPT_DIR}/env.sh
+
 ${SCRIPT_DIR}/world/export.sh
 ${SCRIPT_DIR}/dep.sh
