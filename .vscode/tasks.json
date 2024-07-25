@@ -107,6 +107,27 @@
         },
         // Workspace editing tasks
         {
+            "label": "Install",
+            "detail": "Install the workspace according to the configuration",
+            "type": "shell",
+            "command": "./install.sh",
+            "problemMatcher": []
+        },
+        {
+            "label": "Update ROS2 dependencies",
+            "detail": "Update/install the ROS2 workspace dependencies",
+            "type": "shell",
+            "command": "./dep.sh",
+            "problemMatcher": []
+        },
+        {
+            "label": "Export worlds",
+            "detail": "Export the .sdf files to the worlds directory of the PX4 installation.",
+            "type": "shell",
+            "command": "${workspaceFolder}/world/export.sh",
+            "problemMatcher": []
+        }
+        {
             "label": "New ament_cmake package",
             "detail": "Create a new ROS cpp package from a template.",
             "type": "shell",
@@ -118,20 +139,6 @@
             "detail": "Create a new ROS python package from a template.",
             "type": "shell",
             "command": "ros2 pkg create --destination-directory src --build-type ament_python ${input:package}",
-            "problemMatcher": []
-        },
-        {
-            "label": "Install ROS2 dependencies",
-            "detail": "Install the ROS2 workspace dependencies",
-            "type": "shell",
-            "command": "./dep.sh",
-            "problemMatcher": []
-        },
-        {
-            "label": "Export worlds",
-            "detail": "Export the .sdf files to the worlds directory of the PX4 installation.",
-            "type": "shell",
-            "command": "${workspaceFolder}/world/export.sh",
             "problemMatcher": []
         }
     ],
