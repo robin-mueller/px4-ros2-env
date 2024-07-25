@@ -44,6 +44,7 @@ if [ ! -f "${PX4_ROS2_ENV_QGROUNDCONTROL_APP}" ]; then
     sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl -y
     sudo apt install libfuse2 -y
     sudo apt install libxcb-xinerama0 libxkbcommon-x11-0 libxcb-cursor0 -y
+    sudo apt-get install -y libpulse-dev # Necessary for WSL. See https://github.com/mavlink/qgroundcontrol/issues/10306
     wget -P "$PX4_ROS2_ENV_DEFAULT_BASE_DIR" https://github.com/mavlink/qgroundcontrol/releases/download/${QGC_VERSION}/QGroundControl.AppImage
 else 
     echo -e "\033[1;33m--- QGroundControl already installed.\e[0m"
