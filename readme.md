@@ -1,15 +1,16 @@
-# PX4-ROS2 Development Setup
+# PX4/ROS2 Development Setup
 
 This repo offers a **VS Code workspace template for developing software extensions** for the [PX4 Autopilot](https://px4.io/) using [ROS 2](https://docs.ros.org/en/humble/) (preferably Humble Hawksbill). There are many automated tasks that you can make use of:
+- **Install**: Install the workspace
+- **Update ROS2 dependencies**: Update/install packages specified in `src/ros2.repos` and run rosdep
 - **Build all/package/packages up to**: Build packages using `colcon`
 - **Clean**: Clean the workspace
 - **Purge**: Remove `build`, `install` and `log`
-- **Install ROS2 dependencies**: Install packages specified in `src/ros2.repos` and run rosdep
 - **New ament_cmake/ament_python package**: Create a new ROS2 package
 - **Export worlds**: Export custom worlds to become available for simulation
 - **Run (...)**: Application shortcuts
 
-The repository is inspired by the [VS Code ROS 2 workspace template](https://github.com/athackst/vscode_ros2_workspace) and tries to integrate common PX4 workflows to facilitate the troublesome development process of real-time applications.
+The repository is inspired by the [VS Code ROS 2 workspace template](https://github.com/athackst/vscode_ros2_workspace) and tries to integrate common PX4 workflows to facilitate the troublesome development process of real-time ROS2 applications.
 
 ## System Requirements and Installation
 
@@ -33,7 +34,7 @@ Alternatively, follow this step-by-step guide to create the workspace manually. 
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 
    # Checkout specific version/branch and update submodules
-   PX4_VERSION="v1.15.0-beta1"
+   PX4_VERSION="v1.15.0-beta2"
    (cd ./PX4-Autopilot && git checkout $PX4_VERSION && make submodulesclean)
 
    # Install PX4 Autopilot dependencies on current system
@@ -46,7 +47,7 @@ Alternatively, follow this step-by-step guide to create the workspace manually. 
    cd ./PX4-Autopilot
    make clean
    make distclean
-   git checkout v1.15.0-beta1 # Switch version/tag/revision here
+   git checkout v1.15.0-beta2 # Switch version/tag/revision here
    make submodulesclean # Make sure to update the submodules
    ```
 
