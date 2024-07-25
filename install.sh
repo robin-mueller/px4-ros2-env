@@ -23,13 +23,13 @@ sudo apt install ros-humble-ros-base -y
 sudo apt install ros-dev-tools -y
 
 # PX4 Autopilot
-PX4_VERSION="v1.15.0-beta1"
+PX4_VERSION="v1.15.0-beta2"
 
 if [ ! -d "$PX4_ROS2_ENV_PX4_AUTOPILOT_DIR" ]; then
     echo -e "\e[1;33m--- PX4 Autopilot not found. Installing...\e[0m"
-    cd "$PX4_ROS2_ENV_DEFAULT_BASE_DIR" && git clone https://github.com/PX4/PX4-Autopilot.git --recursive
-    (cd ./PX4-Autopilot && exec git checkout $PX4_VERSION && exec make submodulesclean)
-    bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
+    git clone https://github.com/PX4/PX4-Autopilot.git "$PX4_ROS2_ENV_PX4_AUTOPILOT_DIR" --recursive
+    (cd "$PX4_ROS2_ENV_PX4_AUTOPILOT_DIR" && git checkout $PX4_VERSION && make submodulesclean)
+    bash "$PX4_ROS2_ENV_PX4_AUTOPILOT_DIR/Tools/setup/ubuntu.sh"
 else 
     echo -e "\033[1;33m--- PX4 Autopilot already installed.\e[0m"
 fi

@@ -30,11 +30,11 @@ Alternatively, follow this step-by-step guide to create the workspace manually. 
 1. Clone [PX4 Autopilot](https://github.com/PX4/PX4-Autopilot) following the steps below:
    ```sh
    # Clone the source code at specific revision to guarantee compatibility
-   cd ~/Desktop && git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+   git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 
    # Checkout specific version/branch and update submodules
    PX4_VERSION="v1.15.0-beta1"
-   (cd ./PX4-Autopilot && exec git checkout $PX4_VERSION && exec make submodulesclean)
+   (cd ./PX4-Autopilot && git checkout $PX4_VERSION && make submodulesclean)
 
    # Install PX4 Autopilot dependencies on current system
    bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
@@ -47,7 +47,7 @@ Alternatively, follow this step-by-step guide to create the workspace manually. 
    make clean
    make distclean
    git checkout v1.15.0-beta1 # Switch version/tag/revision here
-   make submodulesclean
+   make submodulesclean # Make sure to update the submodules
    ```
 
 1. Export the simulation worlds from `world` to the corresponding directory in the isntalled PX4 workspace by executing `world/export.sh`. This script will make any `.sdf` file the containing directory available for simulation.

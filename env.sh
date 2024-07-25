@@ -8,11 +8,21 @@
 # ----------------------------------------------------------------------
 
 source ~/.bashrc
-source /opt/ros/humble/setup.bash
-source /usr/share/colcon_cd/function/colcon_cd.sh
-export _colcon_cd_root=/opt/ros/humble/
-source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
-if [ -f install/local_setup.bash ]; then source install/local_setup.bash; fi
+
+# ROS2 specific environment
+if [ -d /opt/ros ]; then
+    source /opt/ros/humble/setup.bash
+fi
+if [ -d /usr/share/colcon_cd ]; then
+    source /usr/share/colcon_cd/function/colcon_cd.sh
+    export _colcon_cd_root=/opt/ros/humble/
+fi
+if [ -d /usr/share/colcon_argcomplete ]; then
+    source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
+fi
+if [ -f install/local_setup.bash ]; then 
+    source install/local_setup.bash
+fi
 
 export PX4_ROS2_ENV_DEFAULT_BASE_DIR="$HOME/Desktop"
 
