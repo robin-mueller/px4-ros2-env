@@ -1,7 +1,7 @@
 # PX4/ROS2 Development Setup
 
 This repo offers a **VS Code workspace template for developing software extensions** for the [PX4 Autopilot](https://px4.io/) using [ROS 2](https://docs.ros.org/en/humble/) (preferably Humble Hawksbill). There are many automated tasks that you can make use of:
-- **Install**: Install the workspace
+- **Setup environment**: Setup the development environment by installing all required programs
 - **Update ROS2 dependencies**: Update/install packages specified in `src/ros2.repos` and run rosdep
 - **Build all/package/packages up to**: Build packages using `colcon`
 - **Clean**: Clean the workspace
@@ -19,7 +19,7 @@ Required OS is [Ubuntu 22.04 (Jammy Jellyfish)](https://www.releases.ubuntu.com/
 - Make sure your swap file is big enough if you have little amount of RAM. If too small, and the system memory on your machine is not able to handle the `colcon build` process, your system is likely to crash on big build loads. Follow [this tutorial](https://askubuntu.com/questions/178712/how-to-increase-swap-space) to increase the swap file. Usually, **16 GB of system memory** should suffice.
 - Install the graphics driver of your external graphics card, if you have one. Gazebo simulation will put heavy load on you CPU, if the system is not able to utilize a graphics card. For example for nvidia graphics cards refer to [here](https://ubuntu.com/server/docs/nvidia-drivers-installation).
 
-When your operating system is set up, run `install.sh` to install the workspace. The default location to install the required applications to is `~/Desktop`. If either the PX4 workspace, QGroundControl or Groot2 have already been cloned/downloaded to a different location than the default one, the respective variables in [env.sh](env.sh) need to be updated for the terminal environment and the automation tasks in VS Code to work properly. The install script will only install the components that have not been found
+To automatically install all programs for developing with PX4 and ROS2, run `setup.sh`. The default install location is `~/Desktop`. If either the PX4 workspace, QGroundControl or Groot2 have already been cloned/downloaded to a different location than the default one, the respective variables in [env.sh](env.sh) need to be updated for the terminal environment and the automation tasks in VS Code to work properly. The setup script will only install the components that have not been found.
 
 ### Manual installation
 Alternatively, follow this step-by-step guide to create the workspace manually. **Make sure to execute the following steps in the given order**.

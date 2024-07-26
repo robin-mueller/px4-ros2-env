@@ -107,10 +107,10 @@
         },
         // Workspace editing tasks
         {
-            "label": "Install",
-            "detail": "Install the workspace according to the configuration",
+            "label": "Setup environment",
+            "detail": "Setup the development environment",
             "type": "shell",
-            "command": "./install.sh",
+            "command": "./setup.sh",
             "problemMatcher": []
         },
         {
