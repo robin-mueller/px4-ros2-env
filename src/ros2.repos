@@ -16,7 +16,7 @@ repositories:
   dep/px4/px4_ros2_interface_lib:
     type: git
     url: https://github.com/Auterion/px4-ros2-interface-lib
-    version: 1.2.2
+    version: 1.2.7
 
   # dep/behaviortree/behaviortree_cpp:
   #   type: git

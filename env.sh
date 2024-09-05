@@ -7,6 +7,8 @@
 #
 # ----------------------------------------------------------------------
 
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
 source ~/.bashrc
 
 # ROS2 specific environment
@@ -20,8 +22,8 @@ fi
 if [ -d /usr/share/colcon_argcomplete ]; then
     source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
 fi
-if [ -f install/local_setup.bash ]; then 
-    source install/local_setup.bash
+if [ -f "${SCRIPT_DIR}/install/local_setup.bash" ]; then 
+    source "${SCRIPT_DIR}/install/local_setup.bash"
 fi
 
 export PX4_ROS2_ENV_DEFAULT_BASE_DIR="$HOME/Desktop"

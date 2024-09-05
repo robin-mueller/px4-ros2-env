@@ -34,7 +34,7 @@ Alternatively, follow this step-by-step guide to create the workspace manually. 
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 
    # Checkout specific version/branch and update submodules
-   PX4_VERSION="v1.15.0-beta2"
+   PX4_VERSION="v1.15.0"
    (cd ./PX4-Autopilot && git checkout $PX4_VERSION && make submodulesclean)
 
    # Install PX4 Autopilot dependencies on current system
@@ -47,7 +47,7 @@ Alternatively, follow this step-by-step guide to create the workspace manually. 
    cd ./PX4-Autopilot
    make clean
    make distclean
-   git checkout v1.15.0-beta2 # Switch version/tag/revision here
+   git checkout v1.15.0 # Switch version/tag/revision here
    make submodulesclean # Make sure to update the submodules
    ```
 
