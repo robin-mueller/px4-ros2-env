@@ -16,6 +16,6 @@ if command -v rosdep &> /dev/null; then
     if [ ! -d /etc/ros/rosdep/sources.list.d ]; then
         sudo rosdep init -q # Init rosdep if not happend yet
     fi
-    rosdep update --rosdistro=$ROS_DISTRO
-    rosdep install --from-paths "${SCRIPT_DIR}/src" --ignore-src -y --rosdistro=$ROS_DISTRO
+    rosdep update
+    rosdep install --from-paths "${SCRIPT_DIR}/src" --ignore-src -y
 fi

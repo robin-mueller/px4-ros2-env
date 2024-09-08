@@ -102,10 +102,6 @@
         "/opt/ros/humble/lib/python3.10/site-packages/",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
     ],
-    // Use autopep8 formatting
-    "autopep8.args": [
-        "--max-line-length=120"
-    ],
     "C_Cpp.default.intelliSenseMode": "linux-gcc-x86",
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"

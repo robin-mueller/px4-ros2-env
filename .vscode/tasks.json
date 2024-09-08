@@ -92,8 +92,8 @@
         },
         // Test tasks
         {
-            "label": "Display test results",
-            "detail": "Show the test results of the last test",
+            "label": "Display last colcon test results",
+            "detail": "Show the test results of the last colcon test run",
             "type": "shell",
             "command": "colcon test-result --all --verbose",
             "group": {
