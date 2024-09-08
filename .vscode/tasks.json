@@ -90,6 +90,17 @@
             },
             "problemMatcher": "$gcc"
         },
+        // Test tasks
+        {
+            "label": "Display test results",
+            "detail": "Show the test results of the last test",
+            "type": "shell",
+            "command": "colcon test-result --all --verbose",
+            "group": {
+                "kind": "test"
+            },
+            "problemMatcher": "$gcc"
+        },
         // Clean
         {
             "label": "Clean",
