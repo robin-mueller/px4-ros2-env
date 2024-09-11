@@ -26,7 +26,7 @@ repositories:
   #   type: git
   #   url: https://github.com/BehaviorTree/BehaviorTree.ROS2.git
   #   version: d9629581c905262d7734dbe96be91b19bd99925b
-  # dep/px4-behavior:
+  # dep/auto-apms:
   #   type: git
-  #   url: https://github.com/robin-mueller/px4-behavior.git
+  #   url: https://github.com/robin-mueller/auto-apms.git
   #   version: origin/master
