@@ -3,8 +3,8 @@
 This repo offers a **VS Code workspace template for developing software extensions** for the [PX4 Autopilot](https://px4.io/) using [ROS 2](https://docs.ros.org/en/humble/) (preferably Humble Hawksbill). There are many automated tasks that you can make use of:
 - **Setup environment**: Setup the development environment by installing all required programs
 - **Update ROS2 dependencies**: Update/install packages specified in `src/ros2.repos` and run rosdep
-- **Build all/package/packages up to**: Build packages using `colcon`
-- **Clean**: Clean the workspace
+- **Build (...)**: Build packages using `colcon`
+- **Clean (...)**: Clean the workspace
 - **Purge**: Remove `build`, `install` and `log`
 - **New ament_cmake/ament_python package**: Create a new ROS2 package
 - **Export worlds**: Export custom worlds to become available for simulation

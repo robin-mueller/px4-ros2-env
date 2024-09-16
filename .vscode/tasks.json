@@ -65,9 +65,7 @@
             "detail": "Build a single package",
             "type": "shell",
             "command": "COLCON_DEFAULTS_FILE=${workspaceFolder}/colcon_defaults.yaml colcon build --packages-select ${input:package}",
-            "group": {
-                "kind": "build"
-            },
+            "group": "build",
             "problemMatcher": "$gcc"
         },
         {
@@ -75,9 +73,7 @@
             "detail": "Build a package and its dependencies",
             "type": "shell",
             "command": "COLCON_DEFAULTS_FILE=${workspaceFolder}/colcon_defaults.yaml colcon build --packages-up-to ${input:package}",
-            "group": {
-                "kind": "build"
-            },
+            "group": "build",
             "problemMatcher": "$gcc"
         },
         {
@@ -85,9 +81,7 @@
             "detail": "Build workspace",
             "type": "shell",
             "command": "COLCON_DEFAULTS_FILE=${workspaceFolder}/colcon_defaults.yaml colcon build",
-            "group": {
-                "kind": "build"
-            },
+            "group": "build",
             "problemMatcher": "$gcc"
         },
         // Test tasks
@@ -96,18 +90,33 @@
             "detail": "Show the test results of the last colcon test run",
             "type": "shell",
             "command": "colcon test-result --all --verbose",
-            "group": {
-                "kind": "test"
-            },
+            "group": "test",
             "problemMatcher": "$gcc"
         },
         // Clean
         {
-            "label": "Clean",
-            "detail": "Run the CMake clean target",
+            "label": "Clean package",
+            "detail": "Run the CMake clean target for a specific package",
+            "type": "shell",
+            "command": "COLCON_DEFAULTS_FILE=${workspaceFolder}/colcon_defaults.yaml colcon build --cmake-target clean --packages-select ${input:package} ",
+            "problemMatcher": "$gcc",
+            "group": "build"
+        },
+        {
+            "label": "Clean packages up to",
+            "detail": "Run the CMake clean target for all packages up to a specific package",
+            "type": "shell",
+            "command": "COLCON_DEFAULTS_FILE=${workspaceFolder}/colcon_defaults.yaml colcon build --cmake-target clean --packages-up-to ${input:package} ",
+            "problemMatcher": "$gcc",
+            "group": "build"
+        },
+        {
+            "label": "Clean all",
+            "detail": "Run the CMake clean target for all packages",
             "type": "shell",
             "command": "COLCON_DEFAULTS_FILE=${workspaceFolder}/colcon_defaults.yaml colcon build --cmake-target clean",
-            "problemMatcher": "$gcc"
+            "problemMatcher": "$gcc",
+            "group": "build"
         },
         {
             "label": "Purge",
