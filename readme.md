@@ -24,7 +24,7 @@ Required OS is [Ubuntu 22.04 (Jammy Jellyfish)](https://www.releases.ubuntu.com/
 To automatically install all programs for developing with PX4 and ROS2, run `setup.sh`. The default install location is `~/Desktop`. If either the PX4 workspace, QGroundControl or Groot2 have already been cloned/downloaded to a different location than the default one, the respective variables in [env.sh](env.sh) need to be updated for the terminal environment and the automation tasks in VS Code to work properly. The setup script will only install the components that have not been found.
 
 ## Integrate with AutoAPMS
-This workspace template is strongly connected with the [AutoAPMS package](https://github.com/robin-mueller/auto-apms) and offers the recommended development setup. Please visit [the installation guide](https://robin-mueller.github.io/auto-apms-guide/installation) for learning how to install optional and required dependencies associated with this package and customize setting up the workspace.
+This workspace template is strongly connected with the [AutoAPMS package](https://github.com/robin-mueller/auto-apms) and offers the recommended development setup. Please visit [the Getting Started](https://robin-mueller.github.io/auto-apms-guide/build-auto-apms) for learning about setting up the workspace.
 
 ## Build
 
