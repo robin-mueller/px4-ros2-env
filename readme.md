@@ -1,8 +1,8 @@
 # PX4/ROS2 Development Setup
 
-This repo offers a **VS Code workspace template for developing software extensions** for the [PX4 Autopilot](https://px4.io/) using [ROS 2](https://docs.ros.org/en/humble/) (preferably Humble Hawksbill). There are many automated tasks that you can make use of:
+This repo offers a **VS Code workspace template for developers** working with [PX4](https://px4.io/) and [ROS 2](https://docs.ros.org/en/humble/). There are many automated tasks that you can make use of:
 - **Setup environment**: Setup the development environment by installing all required programs
-- **Update ROS2 dependencies**: Update/install packages specified in `src/ros2.repos` and run rosdep
+- **Update ROS2 dependencies**: Update/install packages using `vcstool` (see [src/ros2.repos](src/ros2.repos)) and `rosdep`
 - **Build all/package/packages up to**: Build packages using `colcon`
 - **Clean**: Clean the workspace
 - **Purge**: Remove `build`, `install` and `log`
@@ -24,7 +24,7 @@ Required OS is [Ubuntu 22.04 (Jammy Jellyfish)](https://www.releases.ubuntu.com/
 To automatically install all programs for developing with PX4 and ROS2, run `setup.sh`. The default install location is `~/Desktop`. If either the PX4 workspace, QGroundControl or Groot2 have already been cloned/downloaded to a different location than the default one, the respective variables in [env.sh](env.sh) need to be updated for the terminal environment and the automation tasks in VS Code to work properly. The setup script will only install the components that have not been found.
 
 ## Integrate with AutoAPMS
-This workspace template is strongly connected with the [AutoAPMS package](https://github.com/robin-mueller/auto-apms) and offers the recommended development setup. Please visit [the Getting Started](https://robin-mueller.github.io/auto-apms-guide/build-auto-apms) for learning about setting up the workspace.
+This workspace template is strongly connected with the [AutoAPMS ROS 2 package](https://github.com/robin-mueller/auto-apms) and offers the recommended development setup. Please visit the [Getting Started](https://robin-mueller.github.io/auto-apms-guide/getting-started) for learning about setting up the workspace.
 
 ## Build
 
