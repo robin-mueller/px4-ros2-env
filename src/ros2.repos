@@ -18,6 +18,7 @@ repositories:
     url: https://github.com/Auterion/px4-ros2-interface-lib
     version: 1.2.7
 
+  # Additional requirements for developing with AutoAPMS framework
   # dep/behaviortree/behaviortree_cpp:
   #   type: git
   #   url: https://github.com/BehaviorTree/BehaviorTree.CPP.git

@@ -119,7 +119,7 @@
     },
     "cSpell.diagnosticLevel": "Hint",
     "cSpell.words": [
-        "RTPS",
+        "APMS",
         "athackst",
         "autopep",
         "cmake",
@@ -137,6 +137,7 @@
         "rosdep",
         "rosdistro",
         "rosidl",
+        "RTPS",
         "uncrustify",
         "Wextra",
         "Wpedantic",
@@ -148,7 +149,7 @@
         "px4-ros2-env": {
             "path": "bash",
             "icon": "terminal-bash",
-            "args": ["--init-file", "${workspaceFolder}/env.sh", "-i"]
+            "args": ["--init-file", "${workspaceFolder:px4-ros2-env}/env.sh", "-i"]
         },
     },
     "terminal.integrated.defaultProfile.linux": "px4-ros2-env",
