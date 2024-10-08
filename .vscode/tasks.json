@@ -77,6 +77,14 @@
             "problemMatcher": "$gcc"
         },
         {
+            "label": "Build packages above",
+            "detail": "Build the specified package as well as packages which recursively depend on them",
+            "type": "shell",
+            "command": "COLCON_DEFAULTS_FILE=${workspaceFolder}/colcon_defaults.yaml colcon build --packages-above ${input:package}",
+            "group": "build",
+            "problemMatcher": "$gcc"
+        },
+        {
             "label": "Build all",
             "detail": "Build workspace",
             "type": "shell",
