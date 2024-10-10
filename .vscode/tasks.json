@@ -69,18 +69,18 @@
             "problemMatcher": "$gcc"
         },
         {
-            "label": "Build packages up to",
-            "detail": "Build a package and its dependencies",
-            "type": "shell",
-            "command": "COLCON_DEFAULTS_FILE=${workspaceFolder}/colcon_defaults.yaml colcon build --packages-up-to ${input:package}",
-            "group": "build",
-            "problemMatcher": "$gcc"
-        },
-        {
             "label": "Build packages above",
             "detail": "Build the specified package as well as packages which recursively depend on them",
             "type": "shell",
             "command": "COLCON_DEFAULTS_FILE=${workspaceFolder}/colcon_defaults.yaml colcon build --packages-above ${input:package}",
+            "group": "build",
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "Build packages up to",
+            "detail": "Build a package and its dependencies",
+            "type": "shell",
+            "command": "COLCON_DEFAULTS_FILE=${workspaceFolder}/colcon_defaults.yaml colcon build --packages-up-to ${input:package}",
             "group": "build",
             "problemMatcher": "$gcc"
         },
@@ -109,6 +109,14 @@
             "command": "COLCON_DEFAULTS_FILE=${workspaceFolder}/colcon_defaults.yaml colcon build --cmake-target clean --packages-select ${input:package} ",
             "problemMatcher": "$gcc",
             "group": "build"
+        },
+        {
+            "label": "Clean packages above",
+            "detail": "Clean the specified package as well as packages which recursively depend on them",
+            "type": "shell",
+            "command": "COLCON_DEFAULTS_FILE=${workspaceFolder}/colcon_defaults.yaml colcon build --cmake-target clean --packages-above ${input:package}",
+            "group": "build",
+            "problemMatcher": "$gcc"
         },
         {
             "label": "Clean packages up to",
