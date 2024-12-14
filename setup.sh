@@ -6,10 +6,8 @@
 #
 # ----------------------------------------------------------------------
 
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-
 set -e
-source ${SCRIPT_DIR}/env.sh
+source ./env.sh
 
 # ROS2 Humble Hawksbill
 sudo apt install software-properties-common -y
@@ -23,7 +21,7 @@ sudo apt install ros-humble-ros-base -y
 sudo apt install ros-dev-tools -y
 
 # PX4 Autopilot
-PX4_VERSION="v1.15.0"
+PX4_VERSION="v1.15.1"
 
 if [ ! -d "$PX4_ROS2_ENV_PX4_AUTOPILOT_DIR" ]; then
     echo -e "\e[1;33m--- PX4 Autopilot not found. Installing...\e[0m"
@@ -35,7 +33,7 @@ else
 fi
 
 # QGroundControl
-QGC_VERSION="v4.4.0"
+QGC_VERSION="v4.4.2"
 
 if [ ! -f "${PX4_ROS2_ENV_QGROUNDCONTROL_APP}" ]; then
     echo -e "\033[1;33m--- QGroundControl not found. Installing...\e[0m"
@@ -61,7 +59,7 @@ else
 fi
 
 # source again after major installations
-source ${SCRIPT_DIR}/env.sh
+source ./env.sh
 
-${SCRIPT_DIR}/world/export.sh
-${SCRIPT_DIR}/dep.sh
+(cd ./world && ./export.sh)
+./dep.sh

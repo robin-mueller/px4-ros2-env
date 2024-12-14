@@ -4,11 +4,13 @@
     ],
     "files.associations": {
         "*.cmake.in": "cmake",
+        "*.yaml.in": "yaml",
         "*.repos": "yaml",
         "*.world": "xml",
         "*.xacro": "xml",
         "*.sdf": "xml",
         "*.plan": "json",
+        "*.btproj": "xml",
     },
     "python.analysis.extraPaths": [
         "/opt/ros/humble/lib/python3.10/site-packages/",
@@ -34,7 +36,6 @@
         "**/install": true,
         "**/log": true
     },
-    "cSpell.diagnosticLevel": "Hint",
     "cSpell.words": [
         "APMS",
         "athackst",
@@ -68,11 +69,19 @@
             "icon": "terminal-bash",
             "args": [
                 "--init-file",
-                "${workspaceFolder:px4-ros2-env}/env.sh",
+                "${workspaceFolder}/env.sh",
                 "-i"
             ]
         },
     },
     "terminal.integrated.defaultProfile.linux": "px4-ros2-env",
-    "editor.detectIndentation": false
+    "editor.detectIndentation": true,
+    "C_Cpp.clang_format_fallbackStyle": "none",
+    "C_Cpp.clang_format_style": "file:${workspaceFolder}/.clang-format",
+    "C_Cpp.files.exclude": {
+        "${workspaceFolder}/build": true,
+        "${workspaceFolder}/install": true,
+        "**/.vscode": true,
+        "**/.vs": true
+    },
 }

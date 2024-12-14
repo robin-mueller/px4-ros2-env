@@ -162,7 +162,7 @@
             "type": "shell",
             "command": "${workspaceFolder}/world/export.sh",
             "problemMatcher": []
-        }
+        },
         {
             "label": "New ament_cmake package",
             "detail": "Create a new ROS cpp package from a template.",
@@ -181,12 +181,8 @@
     "inputs": [
         {
             "id": "package",
-            "type": "command",
-            "command": "extension.commandvariable.promptStringRemember",
-            "args": {
-                "key": "package_name",
-                "description": "Package name"
-            }
+            "type": "promptString",
+            "description": "Package name"
         }
     ]
 }
